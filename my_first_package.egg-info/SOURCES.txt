@@ -1,0 +1,9 @@
+setup.py
+my_first_package.egg-info/PKG-INFO
+my_first_package.egg-info/SOURCES.txt
+my_first_package.egg-info/dependency_links.txt
+my_first_package.egg-info/not-zip-safe
+my_first_package.egg-info/top_level.txt
+mypack/__init__.py
+mypack/filetools.py
+mypack/myfunc.py
