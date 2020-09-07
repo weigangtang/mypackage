@@ -6,7 +6,7 @@ setuptools.setup(
     author="victor tang",
     author_email="tangw5@mcmaster.ca",
     description="first try to develop python package with github",
-    long_description=long_description,
+    long_description='no long description',
     url="https://github.com/weigangtang/mypacakge",
     packages=setuptools.find_packages(),
     classifiers=[
