@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name="mypackage",
-    version="0.0.1",
+    version="0.0.2",
     author="victor tang",
     author_email="tangw5@mcmaster.ca",
     description="first try to develop python package with github",
