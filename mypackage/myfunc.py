@@ -2,11 +2,6 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-import seaborn as sns
-
-import glob
-from datetime import datetime
-
 import statsmodels.api as sm
 from scipy.stats import pearsonr
 
@@ -68,26 +63,12 @@ def movfunc(ndarr, k, axis=-1, func=np.mean):
     return ndarr_sm
 
 
-def find_nn(x, xref):
-
-	x = np.array([x]) if np.isscalar(x) else np.array(x)
-	xref = np.array(xref)
-
-	nrow, ncol = len(x), len(xref)
-	dist = np.abs(np.tile(x[:, np.newaxis], [1, ncol]) - np.tile(xref[np.newaxis, :], [nrow, 1]))
-	nn_indx = np.argmin(dist, axis=1)
-	nn = xref[nn_indx]
-
-	output = (nn[0], nn_indx[0]) if len(nn)==1 else (nn, nn_indx)    
-	return output
-
 def find_common_valid(*args):
 
-	vars_len = np.array([len(item) for item in args])
-	assert all(vars_len == vars_len[0])
+	lengths = np.array([len(item) for item in args])
+	assert all(lengths == lengths[0])
 
 	indx = np.ones(vars_len[0]).astype(bool)
 	for item in args:
-		indx2 = ~np.isnan(item) & ~np.isinf(item)
-		indx = indx & indx2
+		indx = indx & ~np.isnan(item) & ~np.isinf(item)
 	return indx
